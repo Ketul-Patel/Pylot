@@ -16,7 +16,7 @@ def _get_config(env):
     }.get(env, database.DevelopmentDBConfig)
 
 def init_db(app):
-    config = _get_config(os.getenv('PYRO_ENV', 'DEVELOPMENT'))
+    config = _get_config(os.getenv('PYLOT_ENV', 'DEVELOPMENT'))
     if config.DB_ORM:
         #do some sqlalchemy stuff here
         pass

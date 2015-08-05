@@ -14,5 +14,5 @@ def _get_config(env):
     }.get(env, base.DevelopmentConfig)
 
 def initialize_config(app):
-    env = os.getenv('PYRO_ENV', 'DEVELOPMENT')
+    env = os.getenv('PYLOT_ENV', 'DEVELOPMENT')
     app.config.from_object(_get_config(env))
