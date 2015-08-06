@@ -1,7 +1,11 @@
 """
     System Core Router File
 
-    Defines the route function to make it easier for users to set up routes
+    Defines the verbs and the routes dictionary for use in the routes config file
 """
-def route(app, route_name, pattern, controller, action, **kwargs):
-    app.add_url_rule(pattern, view_func=controller.as_view(route_name, action), **kwargs)
+routes = {}
+routes['GET'] = {}
+routes['POST'] = {}
+routes['PUT'] = {}
+routes['PATCH'] = {}
+routes['DELETE'] = {}

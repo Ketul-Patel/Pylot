@@ -9,9 +9,9 @@
 from flask import request, redirect, flash
 from system.core.controller import Controller
 
-class WelcomeController(Controller):
+class Welcome(Controller):
     def __init__(self, action):
-        super(WelcomeController, self).__init__(action)
+        super(Welcome, self).__init__(action)
         """
             This is an example of loading a model.
             Every controller has access to the load_model method.

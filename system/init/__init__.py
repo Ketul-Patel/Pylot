@@ -10,6 +10,7 @@ from app.config import routes
 
 from system.init.configuration import initialize_config
 from system.init.database import initialize_db
+from system.init.routes import initialize_routes
 
 def initialize_app():
     instance_path = os.path.abspath(os.path.dirname(__file__) + '/../..')
@@ -20,8 +21,6 @@ def initialize_app():
 
     initialize_config(app)
     initialize_db(app)
-
-    # TODO: Move Routes into specific initialize routes file
-    routes.initialize_routes(app)
+    initialize_routes(app)
 
     return app
