@@ -1,0 +1,4 @@
+#!/bin/bash
+virtualenv venv
+source venv/bin/activate
+pip install --allow-external mysql-connector-python -r system/dependencies.txt

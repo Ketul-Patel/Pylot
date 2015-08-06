@@ -11,9 +11,5 @@ manager = Manager(initialize_app())
 
 manager.add_command('runserver', Server(host='127.0.0.1'))
 
-@manager.command
-def setup():
-    subprocess.call('system/utilities/setup.sh')
-
 if __name__ == "__main__":
     manager.run()
