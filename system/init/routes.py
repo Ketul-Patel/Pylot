@@ -45,8 +45,10 @@ def _controller_auto_router(app, controller_name, routed_methods):
     controller = getattr(importlib.import_module('app.controllers.'+controller_name), controller_name)
     methods = dict((x, inspect.getargspec(y).args) for x,y in controller.__dict__.items() if type(y) == FunctionType and not x.startswith('_'))
     for method in methods:
-        parameters = '/'.join(['<'+param+'>' for param in methods[method] if param != 'self'])
-        route = '/'+controller_name.lower()
-        route += '/'+method if method != 'index' else ''
-        route += '/'+parameters if len(parameters) > 1 else ''
-        _set_route(app, controller_name+'#'+method, route, controller, method, methods=list(_verbs))
+        if controller_name+'#'+method not in routed_methods:
+            parameters = '/'.join(['<'+param+'>' for param in methods[method] if param != 'self'])
+            route = '/'+controller_name.lower()
+            route += '/'+method if method != 'index' else ''
+            route += '/'+parameters if len(parameters) > 1 else ''
+            _set_route(app, controller_name+'#'+method, route, controller, method, methods=list(_verbs))
+

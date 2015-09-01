@@ -6,8 +6,7 @@
 
     Create a controller using this template
 """
-from flask import request, redirect, flash
-from system.core.controller import Controller
+from system.core.controller import *
 
 class Welcome(Controller):
     def __init__(self, action):
