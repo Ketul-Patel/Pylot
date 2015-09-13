@@ -5,7 +5,7 @@
 
     We also have to define a dispatch_request method that helps the controller load a view
 """
-from flask import current_app, render_template, redirect, request, session, flash
+from flask import current_app, render_template, redirect, request, session, flash, jsonify
 from flask.views import View
 import importlib
 
@@ -34,4 +34,4 @@ class Controller(View):
         model = getattr(importlib.import_module('app.models.'+model_name), model_name)
         self.models[model_name] = model()
 
-__all__ = ['Controller', 'request', 'session', 'redirect', 'flash']
+__all__ = ['Controller', 'request', 'session', 'redirect', 'flash', 'jsonify']
