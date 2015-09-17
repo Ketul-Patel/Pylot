@@ -23,7 +23,7 @@ cd Pylot
 . setup
 ```
 
-Make sure you are running MAMP, and create a dummy database called 'mydb' then run the following command to start the development server
+Now you can start your development server like so:
 ```
 python manage.py runserver
 ```
