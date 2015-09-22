@@ -6,7 +6,9 @@
     Gives a model access to the db object
 """
 from flask import current_app
+from flask.ext.bcrypt import Bcrypt
 
 class Model(object):
     def __init__(self):
         self.db = current_app.db
+        self.bcrypt = Bcrypt(current_app)

@@ -2,6 +2,7 @@ Flask==0.10.1
 Flask-Script==2.0.5
 Flask-SQLAlchemy==2.0
 itsdangerous==0.24
+flask-bcrypt
 Jinja2==2.8
 MarkupSafe==0.23
 mysql-connector-python==2.0.4
