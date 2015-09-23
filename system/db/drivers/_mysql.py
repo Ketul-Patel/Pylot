@@ -23,9 +23,9 @@ class MySQLConnection(object):
         dbconfig.update(config.DB_OPTIONS)
         self.conn = mysql.connector.connect(**dbconfig)
 
-    def query_db(self, query):
+    def query_db(self, query, data=None):
         cursor = self.conn.cursor(dictionary=True)
-        data = cursor.execute(query)
+        data = cursor.execute(query, data)
         if query[0:6].lower() != 'select':
             self.conn.commit()
             return
