@@ -18,6 +18,7 @@ class MySQLConnection(object):
             'password': config.DB_PASSWORD,
             'database': config.DB_DATABASE_NAME,
             'host': config.DB_HOST,
+            'port': config.DB_PORT,
         }
         dbconfig.update(config.DB_OPTIONS)
         self.conn = mysql.connector.connect(**dbconfig)
