@@ -18,13 +18,14 @@ class MySQLConnection(object):
             'password': config.DB_PASSWORD,
             'database': config.DB_DATABASE_NAME,
             'host': config.DB_HOST,
+            'port': config.DB_PORT,
         }
         dbconfig.update(config.DB_OPTIONS)
         self.conn = mysql.connector.connect(**dbconfig)
 
-    def query_db(self, query):
+    def query_db(self, query, data=None):
         cursor = self.conn.cursor(dictionary=True)
-        data = cursor.execute(query)
+        data = cursor.execute(query, data)
         if query[0:6].lower() != 'select':
             self.conn.commit()
             return

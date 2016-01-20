@@ -5,8 +5,10 @@
 
     We also have to define a dispatch_request method that helps the controller load a view
 """
-from flask import current_app, render_template
+from flask import current_app, render_template, redirect, request, session, flash, jsonify
 from flask.views import View
+import requests
+from urllib import urlencode
 import importlib
 
 class Controller(View):
@@ -33,3 +35,5 @@ class Controller(View):
     def load_model(self, model_name):
         model = getattr(importlib.import_module('app.models.'+model_name), model_name)
         self.models[model_name] = model()
+
+__all__ = ['Controller', 'request', 'session', 'redirect', 'flash', 'jsonify','requests', 'urlencode']

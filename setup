@@ -1,0 +1,4 @@
+#!/bin/bash
+virtualenv venv
+source venv/bin/activate
+sudo -H pip install --allow-all-external -r system/dependencies.txt

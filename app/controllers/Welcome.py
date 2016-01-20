@@ -6,17 +6,17 @@
 
     Create a controller using this template
 """
-from flask import request, redirect, flash
-from system.core.controller import Controller
+from system.core.controller import *
 
-class WelcomeController(Controller):
+class Welcome(Controller):
     def __init__(self, action):
-        super(WelcomeController, self).__init__(action)
+        super(Welcome, self).__init__(action)
         """
             This is an example of loading a model.
             Every controller has access to the load_model method.
+
+            self.load_model('WelcomeModel')
         """
-        self.load_model('WelcomeModel')
 
     """ This is an example of a controller method that will load a view for the client """
     def index(self):

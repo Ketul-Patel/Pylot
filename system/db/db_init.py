@@ -17,12 +17,13 @@ def _get_config(env):
 
 def init_db(app):
     config = _get_config(os.getenv('PYLOT_ENV', 'DEVELOPMENT'))
-    if config.DB_ORM:
-        #do some sqlalchemy stuff here
-        pass
-    else:
-        driver_file = 'system.db.drivers._'+config.DB_DRIVER
-        db_connector = importlib.import_module(driver_file)
-        db = db_connector.connect(config)
-        app.db = db
-        app.config['DB_ORM'] = False
+    if config.DB_ON:
+        if config.DB_ORM:
+            # TODO: Add in SQLAlchemy configurations here
+            pass
+        else:
+            driver_file = 'system.db.drivers._'+config.DB_DRIVER
+            db_connector = importlib.import_module(driver_file)
+            db = db_connector.connect(config)
+            app.db = db
+            app.config['DB_ORM'] = False

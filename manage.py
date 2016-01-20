@@ -5,6 +5,7 @@
 """
 from flask.ext.script import Manager, Server
 from system.init import initialize_app
+import subprocess
 
 manager = Manager(initialize_app())
 
