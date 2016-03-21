@@ -37,4 +37,3 @@ class Welcome(Controller):
         # return self.load_view('index.html', messages=messages, user=user)
         """
         return self.load_view('index.html')
-
