@@ -16,14 +16,17 @@ def _get_config(env):
     }.get(env, database.DevelopmentDBConfig)
 
 def init_db(app):
+
     config = _get_config(os.getenv('PYLOT_ENV', 'DEVELOPMENT'))
+
     if config.DB_ON:
-        if config.DB_ORM:
-            # TODO: Add in SQLAlchemy configurations here
-            pass
-        else:
-            driver_file = 'system.db.drivers._'+config.DB_DRIVER
-            db_connector = importlib.import_module(driver_file)
-            db = db_connector.connect(config)
-            app.db = db
-            app.config['DB_ORM'] = False
+        driver_file = 'system.db.drivers._' + config.DB_DRIVER
+        db_connector = importlib.import_module(driver_file)
+        #TODO: FIX THIS
+        if not db_connector:
+            raise Exception('Right now we do not have support for #{driver_file}') # fix this 
+        app.config['SQLALCHEMY_ECHO'] = True
+        db = db_connector.connect(config, app)
+        app.db = db
+    else:
+        app.db = None
