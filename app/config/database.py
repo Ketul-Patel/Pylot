@@ -3,6 +3,10 @@
 """
 """ Put Generic Database Configurations here """
 import os
+<<<<<<< HEAD
+=======
+
+>>>>>>> revisions setup
 class DBConfig(object):
     """ DB_ON must be True to use the DB! """
     DB_ON = False
