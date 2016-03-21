@@ -15,17 +15,12 @@ app = initialize_app()
 
 manager = Manager(app)
 
-db = app.db
-
 @manager.option('-db', '--database', help='database name')
 def create_db(database):
 	create_database(app, database)
 
- 
-migrate = Migrate(app, db)
 
 manager.add_command('runserver', Server(host='127.0.0.1'))
-manager.add_command('db', MigrateCommand)
 
 if __name__ == "__main__":
     manager.run()
