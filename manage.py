@@ -20,7 +20,6 @@ manager = Manager(app)
 # def create_db(database):
 # 	create_database(app, database)
 
-
 manager.add_command('runserver', Server(host='127.0.0.1'))
 
 if __name__ == "__main__":
