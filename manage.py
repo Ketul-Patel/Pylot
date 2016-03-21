@@ -27,15 +27,5 @@ migrate = Migrate(app, db)
 manager.add_command('runserver', Server(host='127.0.0.1'))
 manager.add_command('db', MigrateCommand)
 
-"""
-class Post(db.Model):
-  id = db.Column(db.Integer, primary_key=True)
-  title = db.Column(db.String(128))
-  body = db.Column(db.Text)
- 
-  def __init__(self, title, body):
-        self.title = title
-        self.body = body
-"""
 if __name__ == "__main__":
     manager.run()

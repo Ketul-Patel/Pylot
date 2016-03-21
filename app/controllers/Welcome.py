@@ -24,7 +24,12 @@ class Welcome(Controller):
         A loaded model is accessible through the models attribute 
         self.models['WelcomeModel'].get_all_users()
         """
+        """
         # self.models['WelcomeModel'].add_post()
         # posts = self.models['WelcomeModel'].grab_posts()
         # user = self.models['WelcomeModel'].get_user()
-        return self.load_view('index.html', posts=posts, user=user)
+        """
+        # to pass information on to a view it's the same as it was with Flask
+        # return self.load_view('index.html', posts=posts, user=user)
+
+        return self.load_view('index.html')
