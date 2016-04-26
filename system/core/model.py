@@ -8,12 +8,13 @@
 """
 from flask import current_app
 from flask.ext.bcrypt import Bcrypt
-import models
 import inspect
 
 class Model(object):
     def __init__(self):
         self.db = current_app.db
         self.bcrypt = Bcrypt(current_app)
+
+
 
 

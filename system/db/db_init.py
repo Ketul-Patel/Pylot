@@ -26,9 +26,7 @@ def init_db(app):
         if not db_connector:
             raise Exception('Right now we do not have support for #{driver_file}') # fix this 
         app.config['SQLALCHEMY_ECHO'] = True
-        print 'is it going in here'
         db = db_connector.connect(config, app)
         app.db = db
     else:
         app.db = "Database is off"
-
