@@ -1,7 +1,5 @@
-import mysql.connector
 import collections
 import inspect
-import models
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
 
