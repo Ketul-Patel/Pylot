@@ -30,13 +30,10 @@ class WelcomeModel(Model):
         sql = "INSERT into messages (message, created_at, users_id) values(:message, NOW(), :users_id)"
         data = {'message': 'awesome bro', 'users_id': 1}
         self.db.query_db(sql, data)
-        
         return True
     
     def grab_messages(self):
         query = "SELECT * from messages where users_id = :user_id"
         data = {'user_id':1}
         return self.db.query_db(query, data)
-
     """
-    
