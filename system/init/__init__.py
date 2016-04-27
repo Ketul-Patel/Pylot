@@ -5,7 +5,6 @@
 """
 from flask import Flask
 import os
-
 from app.config import routes
 
 from system.init.configuration import initialize_config
@@ -13,6 +12,7 @@ from system.init.database import initialize_db
 from system.init.routes import initialize_routes
 
 def initialize_app():
+
     instance_path = os.path.abspath(os.path.dirname(__file__) + '/../..')
     template_folder = os.path.join(instance_path, 'app/views')
     static_folder = os.path.join(instance_path, 'app/static')
