@@ -25,7 +25,7 @@ class WelcomeModel(Model):
     def get_user(self):
         query = "SELECT * from users where id = :id"
         data = {'id': 1}
-        return self.db.query_db(query, data).fetchone()
+        return self.db.get_one(query, data)
 
     def add_post(self):
         sql = "INSERT into messages (message, created_at, users_id) values(:message, NOW(), :users_id)"
