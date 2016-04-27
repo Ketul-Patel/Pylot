@@ -29,4 +29,4 @@ def init_db(app):
         db = db_connector.connect(config, app)
         app.db = db
     else:
-        app.db = "Database is off"
+        app.db = None
