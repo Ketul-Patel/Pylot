@@ -2,7 +2,7 @@ import collections
 import inspect
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
-​
+
 def _convert(data):
     if isinstance(data, basestring):
         return str(data)
@@ -12,7 +12,7 @@ def _convert(data):
         return type(data)(map(_convert, data))
     else:
         return data
-​
+
 def connect(config, app):
     dbconfig = {
         'user': config.DB_USERNAME,
@@ -24,7 +24,7 @@ def connect(config, app):
     dbconfig.update(config.DB_OPTIONS)
     app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://" + str(config.DB_USERNAME) + ":" + str(config.DB_PASSWORD) + "@127.0.0.1:" + str(config.DB_PORT) + "/" + config.DB_DATABASE_NAME
     db = SQLAlchemy(app)
-​
+
     def _query_db(query, data=None):
         result = db.session.execute(text(query), data)
         if query[0:6].lower() == 'select':
@@ -42,11 +42,11 @@ def connect(config, app):
         else:
             # if the query was an update or delete, return nothing and commit changes
             app.db.session.commit()
-​
+
     def _get_one(query, data=None):
         result = db.session.execute(text(query), data).fetchone()
         return result
-​
+        
     db.query_db = _query_db
     db.get_one = _get_one
     return db
