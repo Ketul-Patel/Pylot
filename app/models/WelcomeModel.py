@@ -16,7 +16,7 @@ class WelcomeModel(Model):
     Below is an example of a model method that queries the database for all users in a fictitious application
     
     Every model has access to the "self.db.query_db" method which allows you to interact with the database
-
+ 
     def get_users(self):
         query = "SELECT * from users"
         return self.db.query_db(query)
