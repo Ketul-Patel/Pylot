@@ -5,7 +5,7 @@
 import os
 class DBConfig(object):
     """ DB_ON must be True to use the DB! """
-    DB_ON = True
+    DB_ON = False
     DB_DRIVER = 'mysql'
     DB_ORM = False
 
