@@ -1,5 +1,8 @@
 #!/bin/bash
-virtualenv venv
-source venv/bin/activate  
-pip install --allow-all-external -r system/dependencies.txt
-pip install -r system/dependencies.txt
+echo "Use a previously created virtualenv, (checkout python's virtualenv manager and virtualenv)"
+echo "Don't have one?  Run these commands:"
+echo "virtualenv venv"
+echo "source venv/bin/activate"
+echo "pip install --allow-all-external -r system/dependencies.txt"
+echo "pip install -r system/dependencies.txt"
+echo "note: for pcs' and python 3 you might want to run pip install mysqlclient too"
