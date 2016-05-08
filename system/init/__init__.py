@@ -1,4 +1,4 @@
-""" 
+"""
     System Initialization File
 
     Loads initializers for configurations, database, and routes and creates the flask application
@@ -10,6 +10,7 @@ from app.config import routes
 from system.init.configuration import initialize_config
 from system.init.database import initialize_db
 from system.init.routes import initialize_routes
+from system.libraries.libraries import *
 
 def initialize_app():
 
