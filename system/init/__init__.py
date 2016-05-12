@@ -23,5 +23,6 @@ def initialize_app():
     initialize_config(app)
     initialize_db(app)
     initialize_routes(app)
+    initialize_libraries(app)
 
     return app
