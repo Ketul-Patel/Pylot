@@ -46,39 +46,71 @@ in that instance set your security groups:
 
 Do all the key stuff and launch!
 # Ubuntu System setup
-$ sudo apt-get update \
-$ sudo apt-get install python-pip python-dev nginx git \
+$ sudo apt-get update
+
+$ sudo apt-get install python-pip python-dev nginx git
+
 $ sudo apt-get install build-essential libmysqlclient-dev
+
 ## below are req's for alternative python versions e.g. 2.7.11 (ubuntu comes with 2.7.6, don't mess with it!)
-$ sudo apt-get install -y \\\
-autotools-dev      \\\
-blt-dev            \\\
-bzip2              \\\
-dpkg-dev           \\\
-g++-multilib       \\\
-gcc-multilib       \\\
-libbluetooth-dev   \\\
-libbz2-dev         \\\
-libexpat1-dev      \\\
-libffi-dev         \\\
-libffi6            \\\
-libffi6-dbg        \\\
-libgdbm-dev        \\\
-libgpm2            \\\
-libncursesw5-dev   \\\
-libreadline-dev    \\\
-libsqlite3-dev     \\\
-libssl-dev         \\\
-libtinfo-dev       \\\
-mime-support       \\\
-net-tools          \\\
-netbase            \\\
-python-crypto      \\\
-python-mox3        \\\
-python-pil         \\\
-python-ply         \\\
-quilt              \\\
-tk-dev             \\\
+$ sudo apt-get install -y
+
+autotools-dev      
+
+blt-dev            
+
+bzip2              
+
+dpkg-dev           
+
+g++-multilib       
+
+gcc-multilib       
+
+libbluetooth-dev   
+
+libbz2-dev         
+
+libexpat1-dev      
+
+libffi-dev         
+
+libffi6            
+
+libffi6-dbg        
+
+libgdbm-dev        
+
+libgpm2            
+
+libncursesw5-dev   
+
+libreadline-dev    
+
+libsqlite3-dev     
+
+libssl-dev         
+
+libtinfo-dev       
+
+mime-support       
+
+net-tools          
+
+netbase            
+
+python-crypto      
+
+python-mox3        
+
+python-pil         
+
+python-ply         
+
+quilt              
+
+tk-dev             
+
 zlib1g-dev
 
 $ wget https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz \
@@ -113,15 +145,24 @@ turn it off \
 This is a file - just add the stuff below in!
 ```
 
-[uwsgi] \
-module = wsgi \
-master = true \
-processes = 5 \
-socket = **PROJECT**.sock \
-chmod-socket = 660 \
-vacuum = true \
-plugin = python \
-die-on-term = true \
+[uwsgi]
+
+module = wsgi
+
+master = true
+
+processes = 5
+
+socket = **PROJECT**.sock
+
+chmod-socket = 660
+
+vacuum = true
+
+plugin = python
+
+die-on-term = true
+
 
 ```
 ctrl-x and then yes to saving, to exit
@@ -136,15 +177,24 @@ $ sudo nano /etc/init/**PROJECT**.conf
 This is a file - just add the stuff below in!
 ```
 
-description "uWSGI server instance configured to serve **PROJECT**" \
-start on runlevel [2345] \
-stop on runlevel [!2345] \
-\
-setuid root \
-setgid www-data \
-\
-env PATH=/home/ubuntu/venv/bin \
-chdir /home/ubuntu/**PROJECT** \
+description "uWSGI server instance configured to serve **PROJECT**"
+
+start on runlevel [2345]
+
+stop on runlevel [!2345]
+
+
+
+setuid root
+
+setgid www-data
+
+
+
+env PATH=/home/ubuntu/venv/bin
+
+chdir /home/ubuntu/**PROJECT**
+
 exec uwsgi --ini **PROJECT**.ini
 
 ```
@@ -159,12 +209,18 @@ $ sudo nano /etc/nginx/sites-available/**PROJECT**
 This is a file - just add the stuff below in!
 ```
 
-server { \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listen 80; \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server_name AWS_PUBLIC_IP; \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;location / { \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; include uwsgi_params; \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uwsgi_pass unix:/home/ubuntu/**PROJECT**/**PROJECT**.sock; \
+server {
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listen 80;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server_name AWS_PUBLIC_IP;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;location / {
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; include uwsgi_params;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uwsgi_pass unix:/home/ubuntu/**PROJECT**/**PROJECT**.sock;
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}  
 
 }
@@ -178,17 +234,33 @@ $ sudo ln -s /etc/nginx/sites-available/**PROJECT** /etc/nginx/sites-enabled
 # Setting up mysql database
 $ sudo apt-get install mysql-server
 ###### NOTE: this installation will ask you for a password - make sure that the one you choose is reflected in your database.py code!
-$ mysql -u root -p \
-enter password: **YOUR DB PASSWORD HERE** \
-\> **YOU DB BUILDING CODE HERE** \
-\> show databases; \
-\> use **DB_NAME_HERE** \
+$ mysql -u root -p
+
+enter password: **YOUR DB PASSWORD HERE**
+
+
+\> **YOU DB BUILDING CODE HERE** 
+
+
+\> show databases; 
+
+
+\> use **DB_NAME_HERE** 
+
+
 \> exit
 
-ALT: \
-$ mysql -u root -p **YOUR.SQL**\
-\> show databases; \
-\> use **DB_NAME_HERE** \
+ALT:
+
+$ mysql -u root -p **YOUR.SQL**
+
+
+\> show databases; 
+
+
+\> use **DB_NAME_HERE** 
+
+
 \> exit
 
 # FAQs
