@@ -42,7 +42,7 @@ in that instance set your security groups:
 
 - http: 80 0.0.0.0/0 //anywhere
 - ssh: myaddress // just your computer
-- mysql aurora publicIP of your instance! /32 // just your instance!
+- mysql 0.0.0.0/0  AFTER YOUR LAUNCH CHANGE THIS TO YOUR PUBLIC IP ADDRESS!
 
 Do all the key stuff and launch!
 # Ubuntu System setup
