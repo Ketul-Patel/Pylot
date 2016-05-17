@@ -113,33 +113,51 @@ tk-dev
 
 zlib1g-dev
 
-$ wget https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz \
-$ tar xfz Python-2.7.11.tgz \
+$ wget https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz 
+
+$ tar xfz Python-2.7.11.tgz 
+
 $ cd Python-2.7.11/
 ##### these take a few minutes!
-$ ./configure --prefix /usr/local/lib/python2.7.11 --enable-ipv6 \
-$ sudo make \
+$ ./configure --prefix /usr/local/lib/python2.7.11 --enable-ipv6 
+
+$ sudo make 
+
 $ sudo make install
+
 #### TEST IT
 $ /usr/local/lib/python2.7.11/bin/python -V
 ###### Python 2.7.11 ??? Hopefully?
-$ cd .\.  
-$ sudo pip install virtualenv \
+$ cd .\.
+
+$ sudo pip install virtualenv 
+
 $ virtualenv --python=/usr/local/lib/python2.7.11/bin/python venv
+
 $ source venv/bin/activate
 ##### Test It
+
 (venv)$ python -V
+
 ###### Python 2.7.11 ??? Hopefully?
-(venv)$ git clone **PROJECT** \
-(venv)$ cd **PROJECT** \
-(venv)$ . setup \
+
+(venv)$ git clone **PROJECT** 
+
+(venv)$ cd **PROJECT** 
+
+(venv)$ . setup 
+
 (venv)$ pip install -r system\\dependenciesPC.txt
 ###### TEST
 
-(venv)$ python manage.py runserver \
-running \
-turn it off \
+(venv)$ python manage.py runserver 
+
+running 
+
+turn it off 
+
 #### Setup WSGI/uWSGI -- WSGI.py is preset!
+
 (venv)$ sudo nano ~/**PROJECT**/**PROJECT**.ini\
 ```
 This is a file - just add the stuff below in!
