@@ -12,4 +12,4 @@ Werkzeug==0.10.4
 wheel
 sqlalchemy-utils
 mysqlclient
-uwsgi
+# wsgi add for deployment
