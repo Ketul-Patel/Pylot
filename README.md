@@ -53,65 +53,65 @@ $ sudo apt-get install python-pip python-dev nginx git
 $ sudo apt-get install build-essential libmysqlclient-dev
 
 ## below are req's for alternative python versions e.g. 2.7.11 (ubuntu comes with 2.7.6, don't mess with it!)
-$ sudo apt-get install -y
+$ sudo apt-get install -y \\
 
-autotools-dev      
+autotools-dev   \\   
 
-blt-dev            
+blt-dev         \\   
 
-bzip2              
+bzip2            \\  
 
-dpkg-dev           
+dpkg-dev          \\ 
 
-g++-multilib       
+g++-multilib       \\
 
-gcc-multilib       
+gcc-multilib      \\ 
 
-libbluetooth-dev   
+libbluetooth-dev   \\
 
-libbz2-dev         
+libbz2-dev         \\
 
-libexpat1-dev      
+libexpat1-dev      \\
 
-libffi-dev         
+libffi-dev         \\
 
-libffi6            
+libffi6            \\
 
-libffi6-dbg        
+libffi6-dbg        \\
 
-libgdbm-dev        
+libgdbm-dev        \\
 
-libgpm2            
+libgpm2            \\
 
-libncursesw5-dev   
+libncursesw5-dev   \\
 
-libreadline-dev    
+libreadline-dev    \\
 
-libsqlite3-dev     
+libsqlite3-dev     \\
 
-libssl-dev         
+libssl-dev         \\
 
-libtinfo-dev       
+libtinfo-dev       \\
 
-mime-support       
+mime-support       \\
 
-net-tools          
+net-tools          \\
 
-netbase            
+netbase            \\
 
-python-crypto      
+python-crypto      \\
 
-python-mox3        
+python-mox3      \\  
 
-python-pil         
+python-pil         \\
 
-python-ply         
+python-ply         \\
 
-quilt              
+quilt              \\
 
-tk-dev             
+tk-dev            \\ 
 
-zlib1g-dev
+zlib1g-dev  
 
 $ wget https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz 
 
@@ -158,7 +158,7 @@ turn it off
 
 #### Setup WSGI/uWSGI -- WSGI.py is preset!
 
-(venv)$ sudo nano ~/**PROJECT**/**PROJECT**.ini\
+(venv)$ sudo nano ~/**PROJECT**/**PROJECT**.ini
 ```
 This is a file - just add the stuff below in!
 ```
