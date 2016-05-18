@@ -95,7 +95,7 @@ $ source venv/bin/activate
 
 (venv)$ . setup 
 
-(venv)$ pip install -r system\\dependenciesPC.txt
+(venv)$ pip install -r system/dependenciesPC.txt
 ###### TEST
 
 (venv)$ python manage.py runserver 
