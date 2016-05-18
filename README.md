@@ -96,6 +96,7 @@ $ source venv/bin/activate
 (venv)$ . setup 
 
 (venv)$ pip install -r system/dependenciesPC.txt
+(venv)$ pip install uwsgi
 ###### TEST
 
 (venv)$ python manage.py runserver 
