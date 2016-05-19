@@ -47,6 +47,19 @@ def _setup():
         print "Detected Windows, running the appropriate installation"
         if hasattr(sys, 'real_prefix'):
             print "Detected that we are already using a Virtual Environtment through virtualenv"
+            print "Installing dependencies in Virtual Environment"
+            subprocess.call("pip install -r system/setup/dependenciesPC.txt", shell=True)
+        else:
+            print "You do not have a Virtual Environment set up. You should set one up for your project."
+            print "Would you like for us to create one for you? [Y/N]"
+            user_input = raw_input()
+            if user_input.lower() == "y":
+                print "Ok creating a Virtual Environment. Please rerun python setup.py after the Virtual Environment is created"
+                subprocess.call("python -m virtualenv pylotVenv", shell=True)
+                os.system("bash --rcfile system/setup/setupPC.sh")
+            else:
+                print "Aborting setup. Please create a Virtual Environment and then rerun python setup.py "
+                return None
     else:
         print "Sorry we don't support your OS at this time"
 
