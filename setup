@@ -1,4 +1,5 @@
 #!/bin/bash
+<<<<<<< HEAD
 echo ""
 echo "USED PYLOT? Use the same virtualenv you made before!"
 echo "Otherwise: a) read the readme, and b) checkout python's virtualenv manager and virtualenv"
@@ -20,3 +21,9 @@ echo "pip install -r system/dependenciesPC.txt"
 echo ""
 echo "PC's : GIT BASH USES A CACHE - IF YOUR PRINT STATEMENTS DON'T WORK TRY conemu TERMINAL OR SIMILAR"
 echo "DEPLOYMENT: use pip install -r system/dependenciesPC.txt AND then pip install uwsgi"
+=======
+virtualenv venv
+source venv/bin/activate  
+pip install --allow-all-external -r system/dependencies.txt
+pip install -r system/dependencies.txt
+>>>>>>> 26414455c8ebfe0dbecf9f77b66324fa52b32833

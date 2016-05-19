@@ -21,7 +21,7 @@ def connect(config, app):
         'host': config.DB_HOST,
         'port': config.DB_PORT,
     }
-    # dbconfig.update(config.DB_OPTIONS)
+    dbconfig.update(config.DB_OPTIONS)
     app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://" + str(config.DB_USERNAME) + ":" + str(config.DB_PASSWORD) + "@127.0.0.1:" + str(config.DB_PORT) + "/" + config.DB_DATABASE_NAME
     db = SQLAlchemy(app)
 
@@ -34,7 +34,11 @@ def connect(config, app):
             # return the results as a list of dictionaries
             return list_result
         elif query[0:6].lower() == 'insert':
+<<<<<<< HEAD
             # if the query was an insert, return the id of the
+=======
+            # if the query was an insert, return the id of the 
+>>>>>>> 26414455c8ebfe0dbecf9f77b66324fa52b32833
             # commit changes
             app.db.session.commit()
             # row that was inserted
@@ -46,7 +50,14 @@ def connect(config, app):
     def _get_one(query, data=None):
         result = db.session.execute(text(query), data).fetchone()
         return result
+<<<<<<< HEAD
 
     db.query_db = _query_db
     db.get_one = _get_one
     return db
+=======
+        
+    db.query_db = _query_db
+    db.get_one = _get_one
+    return db
+>>>>>>> 26414455c8ebfe0dbecf9f77b66324fa52b32833

@@ -12,8 +12,8 @@ class Welcome(Controller):
     def __init__(self, action):
         super(Welcome, self).__init__(action)
         """
-            This is an example of loading a model.
-            Every controller has access to the load_model method.
+        This is an example of loading a model.
+        Every controller has access to the load_model method.
         """
         self.load_model('WelcomeModel')
         self.db = self._app.db

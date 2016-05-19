@@ -2,4 +2,5 @@
 *.swp
 *.pyc
 venv/*
+pylotVenv/*
 __pycache__/*
