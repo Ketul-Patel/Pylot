@@ -6,7 +6,6 @@
 from flask.ext.script import Manager, Server
 from flask.ext.sqlalchemy import SQLAlchemy
 from system.init import initialize_app
-from system.setup.setup import Setup
 
 app = initialize_app()
 
