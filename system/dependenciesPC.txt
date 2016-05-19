@@ -11,5 +11,5 @@ SQLAlchemy==1.0.8
 Werkzeug==0.10.4
 wheel
 sqlalchemy-utils
-MySQL-python
-uwsgi
+mysqlclient
+# wsgi add for deployment

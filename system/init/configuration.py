@@ -14,5 +14,7 @@ def _get_config(env):
     }.get(env, base.DevelopmentConfig)
 
 def initialize_config(app):
+    # turned off sql_alchemy_track_modifications, unused and a memory consumer
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     env = os.getenv('PYLOT_ENV', 'DEVELOPMENT')
     app.config.from_object(_get_config(env))

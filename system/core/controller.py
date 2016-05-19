@@ -8,7 +8,17 @@
 from flask import current_app, render_template, redirect, request, session, flash, jsonify
 from flask.views import View
 import requests
-from urllib import urlencode
+
+# for python3 a bit kludgey
+try:
+    from urllib.parse import urlencode #, urlparse
+    # from urllib.request import urlopen, Request
+    # from urllib.error import HTTPError
+except ImportError:
+    # from urlparse import urlparse
+    from urllib import urlencode
+    # from urllib2 import urlopen, Request, HTTPError
+
 import importlib
 
 class Controller(View):

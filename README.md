@@ -12,15 +12,18 @@ Next install virtualenv
 sudo pip install virtualenv
 ```
 
-Clone the project
+Clone pylot
 ```
+PARENT
 git clone -b stable https://github.com/Ketul-Patel/Pylot.git
 ```
 
-cd into the project and source the setup file
+cd into pylot (or rename and cd in) and source the setup file
 ```
 cd Pylot
 . setup
+FOLLOW DIRECTIONS OUTLINED BY SETUP!
+note: there might be some fixes needed here, feel free to send them as FAQ's for this Readme (see below)
 ```
 
 Now you can start your development server like so:

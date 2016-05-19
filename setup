@@ -1,5 +1,22 @@
 #!/bin/bash
-virtualenv venv
-source venv/bin/activate  
-pip install --allow-all-external -r system/dependencies.txt
-pip install -r system/dependencies.txt
+echo ""
+echo "USED PYLOT? Use the same virtualenv you made before!"
+echo "Otherwise: a) read the readme, and b) checkout python's virtualenv manager and virtualenv"
+echo ""
+echo "<<< HAVE A MAC >>>"
+echo ""
+echo "Don't have an PYLOT virtualenv?  Run these commands:"
+echo "virtualenv pylotVenv"
+echo "source pylotVenv/bin/activate"
+echo "pip install -r system/dependencies.txt"
+echo ""
+echo ""
+echo "<<< HAVE A PC >>>"
+echo ""
+echo "Don't have a PYLOT virtualenv?  Run these commands: (in a bash terminal)"
+echo "python -m virtualenv pylotVenv"
+echo "source pylotVenv/scripts/activate"
+echo "pip install -r system/dependenciesPC.txt"
+echo ""
+echo "PC's : GIT BASH USES A CACHE - IF YOUR PRINT STATEMENTS DON'T WORK TRY conemu TERMINAL OR SIMILAR"
+echo "DEPLOYMENT: use pip install -r system/dependenciesPC.txt AND then pip install uwsgi"
