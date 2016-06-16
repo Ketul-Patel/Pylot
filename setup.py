@@ -48,7 +48,7 @@ def _setup():
         print "don't have a pylot virtualenv?  run these commands: (in a bash terminal)"
         print "python -m virtualenv pylotvenv"
         print "source pylotvenv/scripts/activate"
-        print "pip install -r system/dependenciespc.txt"
+        print "pip install -r system/setup/dependenciesPC.txt"
         print ""
         print "please note that git bash uses a cache - if your print statements don't work try 'conemu' terminal or similar"
     else:
@@ -56,6 +56,6 @@ def _setup():
         print "Try running the following steps (accounting for your operating system) to complete the installation"
         print "python -m virtualenv pylotvenv"
         print "source pylotvenv/scripts/activate"
-        print "pip install -r system/dependenciespc.txt"
+        print "pip install -r system/setup/dependenciesOSX.txt"
 
 _setup()
