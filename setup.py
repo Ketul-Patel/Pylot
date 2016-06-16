@@ -4,21 +4,20 @@ import os
 import platform
 
 def _setup():
-    subprocess.call("pwd", shell=true)
     if sys.platform == "linux" or sys.platform == "linux2":
         print "detected a linux distribution, running the appropriate installation"
         if "ubuntu" in platform.linux_distribution():
             if hasattr(sys, 'real_prefix'):
                 print "detected that we are already using a virtual environtment through virtualenv"
                 print "installing dependencies in virtual environment"
-                subprocess.call("pip install -r system/setup/dependenciesubuntu.txt", shell=true)
+                subprocess.call("pip install -r system/setup/dependenciesubuntu.txt", shell=True)
             else:
                 print "you do not have a virtual environment set up. you should set one up for your project."
                 print "would you like for us to create one for you? [y/n]"
                 user_input = raw_input()
                 if user_input.lower() == "y":
                     print "ok creating a virtual environment. please rerun python setup.py after the virtual environment is created"
-                    subprocess.call("virtualenv pylotvenv", shell=true)
+                    subprocess.call("virtualenv pylotvenv", shell=True)
                     os.system("bash --rcfile system/setup/setupubuntu.sh")
                 else:
                     print "aborting setup. please create a virtual environment and then rerun python setup.py"
@@ -31,14 +30,14 @@ def _setup():
         if hasattr(sys, 'real_prefix'):
             print "detected that we are already using a virtual environtment through virtualenv"
             print "installing dependencies in virtual environment"
-            subprocess.call("pip install -r system/setup/dependenciesosx.txt", shell=true)
+            subprocess.call("pip install -r system/setup/dependenciesosx.txt", shell=True)
         else:
             print "you do not have a virtual environment set up. you should set one up for your project."
             print "would you like for us to create one for you? [y/n]"
             user_input = raw_input()
             if user_input.lower() == "y":
                 print "ok creating a virtual environment. please rerun python setup.py after the virtual environment is created"
-                subprocess.call("virtualenv pylotvenv", shell=true)
+                subprocess.call("virtualenv pylotvenv", shell=True)
                 os.system("bash --rcfile system/setup/setuposx.sh")
             else:
                 print "aborting setup. please create a virtual environment and then rerun python setup.py "
