@@ -4,63 +4,58 @@ import os
 import platform
 
 def _setup():
-    subprocess.call("pwd", shell=True)
+    subprocess.call("pwd", shell=true)
     if sys.platform == "linux" or sys.platform == "linux2":
-        print "Detected a linux distribution, running the appropriate installation"
-        if "Ubuntu" in platform.linux_distribution():
+        print "detected a linux distribution, running the appropriate installation"
+        if "ubuntu" in platform.linux_distribution():
             if hasattr(sys, 'real_prefix'):
-                print "Detected that we are already using a Virtual Environtment through virtualenv"
-                print "Installing dependencies in Virtual Environment"
-                subprocess.call("pip install -r system/setup/dependenciesUbuntu.txt", shell=True)
+                print "detected that we are already using a virtual environtment through virtualenv"
+                print "installing dependencies in virtual environment"
+                subprocess.call("pip install -r system/setup/dependenciesubuntu.txt", shell=true)
             else:
-                print "You do not have a Virtual Environment set up. You should set one up for your project."
-                print "Would you like for us to create one for you? [Y/N]"
+                print "you do not have a virtual environment set up. you should set one up for your project."
+                print "would you like for us to create one for you? [y/n]"
                 user_input = raw_input()
                 if user_input.lower() == "y":
-                    print "Ok creating a Virtual Environment. Please rerun python setup.py after the Virtual Environment is created"
-                    subprocess.call("virtualenv pylotVenv", shell=True)
-                    os.system("bash --rcfile system/setup/setupUbuntu.sh")
+                    print "ok creating a virtual environment. please rerun python setup.py after the virtual environment is created"
+                    subprocess.call("virtualenv pylotvenv", shell=true)
+                    os.system("bash --rcfile system/setup/setupubuntu.sh")
                 else:
-                    print "Aborting setup. Please create a Virtual Environment and then rerun python setup.py"
-                    return None
+                    print "aborting setup. please create a virtual environment and then rerun python setup.py"
+                    return none
         else:
-            print "Sorry we only support Ubuntu at this time. Please setup manually."
-            return None
+            print "sorry we only support ubuntu at this time. please setup manually."
+            return none
     elif sys.platform == "darwin":
-        print "Detected OSX, running the appropriate installation"
+        print "detected osx, running the appropriate installation"
         if hasattr(sys, 'real_prefix'):
-            print "Detected that we are already using a Virtual Environtment through virtualenv"
-            print "Installing dependencies in Virtual Environment"
-            subprocess.call("pip install -r system/setup/dependenciesOSX.txt", shell=True)
+            print "detected that we are already using a virtual environtment through virtualenv"
+            print "installing dependencies in virtual environment"
+            subprocess.call("pip install -r system/setup/dependenciesosx.txt", shell=true)
         else:
-            print "You do not have a Virtual Environment set up. You should set one up for your project."
-            print "Would you like for us to create one for you? [Y/N]"
+            print "you do not have a virtual environment set up. you should set one up for your project."
+            print "would you like for us to create one for you? [y/n]"
             user_input = raw_input()
             if user_input.lower() == "y":
-                print "Ok creating a Virtual Environment. Please rerun python setup.py after the Virtual Environment is created"
-                subprocess.call("virtualenv pylotVenv", shell=True)
-                os.system("bash --rcfile system/setup/setupOSX.sh")
+                print "ok creating a virtual environment. please rerun python setup.py after the virtual environment is created"
+                subprocess.call("virtualenv pylotvenv", shell=true)
+                os.system("bash --rcfile system/setup/setuposx.sh")
             else:
-                print "Aborting setup. Please create a Virtual Environment and then rerun python setup.py "
-                return None
+                print "aborting setup. please create a virtual environment and then rerun python setup.py "
+                return none
     elif sys.platform == "win32" or sys.platform == "win64":
-        print "Detected Windows, running the appropriate installation"
-        if hasattr(sys, 'real_prefix'):
-            print "Detected that we are already using a Virtual Environtment through virtualenv"
-            print "Installing dependencies in Virtual Environment"
-            subprocess.call("pip install -r system/setup/dependenciesPC.txt", shell=True)
-        else:
-            print "You do not have a Virtual Environment set up. You should set one up for your project."
-            print "Would you like for us to create one for you? [Y/N]"
-            user_input = raw_input()
-            if user_input.lower() == "y":
-                print "Ok creating a Virtual Environment. Please rerun python setup.py after the Virtual Environment is created"
-                subprocess.call("python -m virtualenv pylotVenv", shell=True)
-                os.system("bash --rcfile system/setup/setupPC.sh")
-            else:
-                print "Aborting setup. Please create a Virtual Environment and then rerun python setup.py "
-                return None
+        print "detected windows, please follow the instructions below to complete the installation"
+        print "don't have a pylot virtualenv?  run these commands: (in a bash terminal)"
+        print "python -m virtualenv pylotvenv"
+        print "source pylotvenv/scripts/activate"
+        print "pip install -r system/dependenciespc.txt"
+        print ""
+        print "please note that git bash uses a cache - if your print statements don't work try 'conemu' terminal or similar"
     else:
         print "Sorry we don't support your OS at this time"
+        print "Try running the following steps (accounting for your operating system) to complete the installation"
+        print "python -m virtualenv pylotvenv"
+        print "source pylotvenv/scripts/activate"
+        print "pip install -r system/dependenciespc.txt"
 
 _setup()
