@@ -7,7 +7,7 @@ def _setup():
     if sys.platform == "linux" or sys.platform == "linux2":
         print "Detected a linux distribution, running the appropriate installation"
         print "--------------------------"
-        if "ubuntu" in platform.linux_distribution():
+        if "Ubuntu" in platform.linux_distribution():
             if hasattr(sys, 'real_prefix'):
                 print "Detected that we are already using a virtual environtment through virtualenv"
                 print "Installing dependencies in virtual environment"
